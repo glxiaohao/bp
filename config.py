@@ -18,7 +18,8 @@ os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 PROD,  RC = range(2)
 CURRENT_PROFILE = RC
 
-PREFIX = 'C:\BllLogs' if platform.system() == 'Windows' else '/opt/logs/python-apps-logs/MiscServiceBp/6001'
+# PREFIX = 'C:\BllLogs' if platform.system() == 'Windows' else '/opt/logs/python-apps-logs/MiscServiceBp/6001' # window
+PREFIX = '/Users/gl/python_logs' if platform.system() == 'Darwin' else '/opt/logs/python-apps-logs/MiscServiceBp/6001'   # mac
 
 # TODO: 日志文件路径
 LOG_PATH_DEBUG = r'%s\debug.log' % PREFIX if platform.system() == 'Windows' else '%s/debug.%s.log' % (
@@ -117,7 +118,18 @@ CURRENT_CONFIG = [
             MAX=50,
             INCREMENT=1,
             THREADED=True
-        )),
+        ),
+        PROCEDURE_QUERY_URL="http://10.128.89.11:8001/p/pq",  # 存储过程批量调用接口 仅供查询
+
+        # # rabbit队列
+        # QUEUE_SERVER_HOST='10.128.89.4',
+        # QUEUE_SERVER_VHOST='journal',
+        # QUEUE_SERVER_PORT=5673,
+        # QUEUE_SERVER_USERNAME='rabbit_journal',
+        # QUEUE_SERVER_PASSWORD='8WmphsulfF',
+
+    ),
+
         dict(
         # rc数据库配置（业务）
         # 数据库配置
@@ -130,5 +142,15 @@ CURRENT_CONFIG = [
             MAX=50,
             INCREMENT=1,
             THREADED=True
-        )),
+        ),
+        PROCEDURE_QUERY_URL="http://172.16.20.46:8001/p/pq",  # 存储过程批量调用接口 仅供查询
+
+        # # rabbit队列
+        # QUEUE_SERVER_HOST='172.16.20.47',
+        # QUEUE_SERVER_VHOST='journal',
+        # QUEUE_SERVER_PORT=5673,
+        # QUEUE_SERVER_USERNAME='smallrabbit',
+        # QUEUE_SERVER_PASSWORD='123456',
+
+        ),
 ][CURRENT_PROFILE]

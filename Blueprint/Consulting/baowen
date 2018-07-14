@@ -1,0 +1,24 @@
+请求方式: get
+
+请求报文:
+http://localhost:6001/bp/consulting/cost/rules?xspid=00000000E0B00375E86F0D16E043AC1410ACB9E7
+
+响应报文:
+
+{
+    "Description":"查询销售品id成功获取相应的数据",
+    "code":0,
+    "dataObject":{
+        "businessRules":null,
+        "imgUrl":"<p>
+        <img src="http://www.189.cn/images/2013/04/17/00000000DA898EC364CD0493E043AE1410ACC1FF.JPG"/>
+        <img src="http://www.189.cn/images/2013/04/17/00000000DA898EC364CF0493E043AE1410ACC1FF.JPG"/>
+        <img src="http://www.189.cn/images/2013/04/17/00000000DA898F9CB5F27F85E043AA1410AC4E08.JPG"/>
+        <img src="http://www.189.cn/images/2013/04/17/00000000DA898F9CB5F47F85E043AA1410AC4E08.JPG"/>
+        <img src="http://www.189.cn/images/2013/04/17/00000000DA8990835DD4440EE043AC1410AC0884.JPG"/>
+        <img src="http://www.189.cn/images/2013/04/17/00000000DA8990DA92340BEEE043AE1410AC2C5E.JPG"/>
+        </p>",
+        "tariffRules":"<p><span style="color: rgb(50, 50, 50); line-height: 21px; font-family: 宋体;">售后服务：详询4008-167-189</span></p>"
+    },
+    "errorDescription":"查询销售品id成功获取相应的数据"
+}

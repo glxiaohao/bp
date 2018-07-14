@@ -17,19 +17,26 @@ from gevent.monkey import patch_all
 from flask import Flask
 import logging
 import logging.config
-import config2
-logging.config.dictConfig(config2.LOGGING_CONFIG)
+import config
+logging.config.dictConfig(config.LOGGING_CONFIG)
 logger = logging.getLogger('default')
 
+from Blueprint.Consulting import consulte
+from Blueprint.OrderSearch import ordersearch
+
 misc_service = Flask(__name__)
+misc_service.config['JSON_AS_ASCII'] = False
+misc_service.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+
+misc_service.register_blueprint(consulte,url_prefix='/bp/consulting')
+misc_service.register_blueprint(ordersearch,url_prefix='/bp/ordersearch')
 
 @misc_service.route('/healthcheck', methods=['GET'])
 def healthcheck():
     return 'OK MiscServiceBp'
 
-
 @misc_service.route('/', methods=['GET'])
-def root():
+def root():                                                
     return 'MiscServiceBp OK'
 
 def sig_handler(sig, frame):

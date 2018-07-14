@@ -1,0 +1,34 @@
+请求方式: post
+
+localhost:6001/bp/ordersearch/ordersearch
+
+请求报文:
+{
+	"head": {
+		"sysCode":"S20160",
+		"appCode":"A01023",
+		"transactionId": "S20160A010231501232301988989769ac044a6a52885475707c30d",
+		"reqTime": "2017-11-21 10:26:51",
+		"version":1,
+		"attach":"hello, 189.cn",
+		"sign":"7e032eecc0172d3bc9395ec64d298bd6"
+	},
+    "biz": {
+		"provinceCode":"600305",
+		"cityCode":"8360100",
+        "certNumber": "",
+        "broadbandAccount": "079102825886"
+    }
+}
+
+响应报文:
+{
+    "biz": null,
+    "head": {
+        "attach": "hello, 189.cn",
+        "code": 1023001,
+        "err": "缺少必要的入参",
+        "reqTime": "2018-07-14 18:08:36",
+        "transactionId": "S20160A010231501232301988989769ac044a6a52885475707c30d"
+    }
+}
