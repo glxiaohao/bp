@@ -21,15 +21,19 @@ import config
 logging.config.dictConfig(config.LOGGING_CONFIG)
 logger = logging.getLogger('default')
 
+# TODO：蓝图
 from Blueprint.Consulting import consulte
 from Blueprint.OrderSearch import ordersearch
+from Blueprint.Order import order
 
 misc_service = Flask(__name__)
 misc_service.config['JSON_AS_ASCII'] = False
 misc_service.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
+# TODO 校验
 misc_service.register_blueprint(consulte,url_prefix='/bp/consulting')
 misc_service.register_blueprint(ordersearch,url_prefix='/bp/ordersearch')
+misc_service.register_blueprint(order, url_prefix='/order')
 
 @misc_service.route('/healthcheck', methods=['GET'])
 def healthcheck():
